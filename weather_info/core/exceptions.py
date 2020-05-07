@@ -1,0 +1,2 @@
+class OpenCageDataException(Exception):
+    pass
