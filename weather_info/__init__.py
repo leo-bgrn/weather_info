@@ -1,7 +1,7 @@
 from flask import Flask, jsonify
 from flask_restx import Api
 
-from weather_info.params.config import config_by_name
+from weather_info.params.params import config_by_name
 
 
 def create_app(env=None):
