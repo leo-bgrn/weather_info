@@ -1,3 +1,4 @@
+from copy import deepcopy
 from typing import List
 
 from weather_info.params.secret_config import open_cage_data_api_key
@@ -10,10 +11,10 @@ basic = {
     }
 }
 
-dev = basic
+dev = deepcopy(basic)
 dev["CONFIG_NAME"] = "dev"
 
-test = basic
+test = deepcopy(basic)
 test["CONFIG_NAME"] = "test"
 
 EXPORT_CONFIGS: [List[dict]] = [dev, test]
