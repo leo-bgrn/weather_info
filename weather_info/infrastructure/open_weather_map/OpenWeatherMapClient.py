@@ -17,7 +17,7 @@ class OpenWeatherMapClient:
         self.api_key = actual_config["OPEN_WEATHER_MAP"]["api_key"]
         logger.info("Starting OpenWeatherMapClient...")
 
-    def get_weather_for_coordinates(self, longitude: float, latitude: float):
+    def get_weather_for_coordinates(self, latitude: float, longitude: float):
         url = f"{self.url}/weather"
 
         query_params = {
