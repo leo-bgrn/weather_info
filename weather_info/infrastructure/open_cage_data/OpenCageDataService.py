@@ -2,7 +2,7 @@ from typing import Optional
 
 from weather_info.domain.location.Coordinates import Coordinates
 from weather_info.domain.location.Location import Location
-from weather_info.infrastructure.open_cage_data.open_cage_data_client import client
+from weather_info.infrastructure.open_cage_data.OpenCageDataClient import client
 
 
 def search_location(label: str) -> Optional[Location]:

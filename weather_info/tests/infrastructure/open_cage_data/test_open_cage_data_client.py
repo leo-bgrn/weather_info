@@ -2,7 +2,7 @@ import unittest
 from unittest import TestCase
 
 from weather_info import create_app
-from weather_info.infrastructure.open_cage_data.open_cage_data_client import OpenCageDataClient
+from weather_info.infrastructure.open_cage_data.OpenCageDataClient import OpenCageDataClient
 
 app = create_app("test")
 

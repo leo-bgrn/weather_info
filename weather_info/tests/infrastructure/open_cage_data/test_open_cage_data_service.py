@@ -2,13 +2,13 @@ import unittest
 from unittest import TestCase
 from unittest.mock import patch
 
-from weather_info.infrastructure.open_cage_data import open_cage_data_service
+from weather_info.infrastructure.open_cage_data import OpenCageDataService
 
 
 class TestOpenCageDataService(TestCase):
     @unittest.SkipTest
     def test_search_location_it(self):
-        res = open_cage_data_service.search_location("Lyon France")
+        res = OpenCageDataService.search_location("Lyon France")
 
         self.assertIsNotNone(res)
 
@@ -26,7 +26,7 @@ class TestOpenCageDataService(TestCase):
                 }
             }]
         }
-        res = open_cage_data_service.search_location("Lyon, France")
+        res = OpenCageDataService.search_location("Lyon, France")
 
         self.assertIsNotNone(res)
         self.assertEqual("Lyon, France", res.label)
