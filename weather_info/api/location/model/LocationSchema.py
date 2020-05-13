@@ -1,6 +1,6 @@
 from marshmallow import Schema, fields
 
-from weather_info.api.location.model.CoordinatesModel import CoordinatesSchema
+from weather_info.api.location.model.CoordinatesSchema import CoordinatesSchema
 
 
 class LocationSchema(Schema):

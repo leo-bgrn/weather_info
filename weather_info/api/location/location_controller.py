@@ -3,7 +3,7 @@ from typing import Optional
 from flask_accepts import responds
 from flask_restx import Namespace, Resource, abort
 
-from weather_info.api.location.model.LocationModel import LocationSchema
+from weather_info.api.location.model.LocationSchema import LocationSchema
 from weather_info.domain.location import LocationProvider
 from weather_info.domain.location.Location import Location
 

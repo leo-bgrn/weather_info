@@ -4,3 +4,4 @@ flask_script
 requests
 marshmallow
 flask_accepts
+marshmallow_enum

@@ -5,7 +5,7 @@ from weather_info.domain.location import LocationProvider
 
 
 class MyTestCase(unittest.TestCase):
-    @patch("weather_info.domain.location.LocationProvider.open_cage_data_service")
+    @patch("weather_info.domain.location.LocationProvider.OpenCageDataService")
     def test_get_location(self, service_mocked):
         service_mocked.search_location.return_value = Mock()
 

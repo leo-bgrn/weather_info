@@ -12,7 +12,7 @@ class TestOpenCageDataService(TestCase):
 
         self.assertIsNotNone(res)
 
-    @patch("weather_info.infrastructure.open_cage_data.open_cage_data_service.client")
+    @patch("weather_info.infrastructure.open_cage_data.OpenCageDataService.client")
     def test_search_location(self, client_mocked):
         client_mocked.forward_search.return_value = {
             "results": [{

@@ -9,5 +9,3 @@ app_logger = logging.getLogger("weather_info")
 app_logger.addHandler(console_handler)
 app_logger.setLevel(logging.DEBUG)
 
-logging.getLogger('werkzeug').setLevel(logging.ERROR)
-
