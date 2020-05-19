@@ -2,7 +2,7 @@ from weather_info.domain.location.CardinalPoint import CardinalPoint
 from weather_info.domain.location.Location import Location
 from weather_info.domain.weather.Temperature import Temperature
 from weather_info.domain.weather.Weather import Weather
-from weather_info.domain.weather.Wind import Wind
+from weather_info.domain.wind.Wind import Wind
 from weather_info.infrastructure.open_weather_map.OpenWeatherMapClient import client
 
 
