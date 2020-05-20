@@ -40,5 +40,29 @@ class OpenWeatherMapClient:
             raise OpenWeatherMapException(
                 f"An error occurred with the OpenWeatherMap API. Error: {response.status_code} - {response.text}")
 
+    def get_forecast_for_coordinates(self, latitude: float, longitude: float):
+        url = f"{self.url}/onecall"
+
+        query_params = {
+            "lat": latitude,
+            "lon": longitude,
+            "units": "metric",
+            "exclude": "hourly,minutely,current",
+            "appid": self.api_key
+        }
+
+        logger.debug(f"GET --> {url}")
+        response = requests.get(url=url, params=query_params)
+
+        if response.ok:
+            res = response.json()
+            logger.debug(f"GET <-- {url} - response: {res}")
+            return res
+
+        else:
+            logger.error(f"GET <-- {url} - {response.status_code} - {response.text}")
+            raise OpenWeatherMapException(
+                f"An error occurred with the OpenWeatherMap API. Error: {response.status_code} - {response.text}")
+
 
 client = OpenWeatherMapClient()

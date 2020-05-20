@@ -9,64 +9,63 @@ from weather_info.infrastructure.open_weather_map import OpenWeatherMapService
 
 class MyTestCase(unittest.TestCase):
     @patch("weather_info.infrastructure.open_weather_map.OpenWeatherMapService.client")
-    def test_get_weather_from_location(self, client_mocked):
+    def test_get_forecast_from_location(self, client_mocked):
         return_from_client = {
-            "coord": {
-                "lon": 4.83,
-                "lat": 45.76
-            },
-            "weather": [
+            "lat": 45.76,
+            "lon": 4.83,
+            "timezone": "Europe/Paris",
+            "timezone_offset": 7200,
+            "daily": [
                 {
-                    "id": 804,
-                    "main": "Clouds",
-                    "description": "overcast clouds",
-                    "icon": "04d"
+                    "dt": 1589972400,
+                    "sunrise": 1589947423,
+                    "sunset": 1590001861,
+                    "temp": {
+                        "day": 26.24,
+                        "min": 17.52,
+                        "max": 26.24,
+                        "night": 17.52,
+                        "eve": 24.43,
+                        "morn": 26.24
+                    },
+                    "feels_like": {
+                        "day": 21.76,
+                        "night": 16.79,
+                        "eve": 21.62,
+                        "morn": 21.76
+                    },
+                    "pressure": 1015,
+                    "humidity": 42,
+                    "dew_point": 12.32,
+                    "wind_speed": 7.42,
+                    "wind_deg": 345,
+                    "weather": [
+                        {
+                            "id": 800,
+                            "main": "Clear",
+                            "description": "clear sky",
+                            "icon": "01d"
+                        }
+                    ],
+                    "clouds": 0,
+                    "uvi": 7.73
                 }
-            ],
-            "base": "stations",
-            "main": {
-                "temp": 10.01,
-                "feels_like": 4.25,
-                "temp_min": 8.89,
-                "temp_max": 11,
-                "pressure": 1005,
-                "humidity": 81
-            },
-            "visibility": 10000,
-            "wind": {
-                "speed": 7.2,
-                "deg": 350
-            },
-            "clouds": {
-                "all": 90
-            },
-            "dt": 1589217489,
-            "sys": {
-                "type": 1,
-                "id": 6505,
-                "country": "FR",
-                "sunrise": 1589170429,
-                "sunset": 1589223622
-            },
-            "timezone": 7200,
-            "id": 8015556,
-            "name": "Vieux Lyon",
-            "cod": 200
+            ]
         }
-        client_mocked.get_weather_for_coordinates.return_value = return_from_client
+        client_mocked.get_forecast_for_coordinates.return_value = return_from_client
 
         location = Location(coordinates=Coordinates(latitude=45.76, longitude=4.83),
                             label="Lyon, France", country="France")
 
-        res = OpenWeatherMapService.get_weather_from_location(location)
+        res = OpenWeatherMapService.get_forecast_from_location(location)
 
-        client_mocked.get_weather_for_coordinates.assert_called_once_with(latitude=location.coordinates.latitude,
+        client_mocked.get_forecast_for_coordinates.assert_called_once_with(latitude=location.coordinates.latitude,
                                                                           longitude=location.coordinates.longitude)
 
-        self.assertEqual(return_from_client["weather"][0]["main"], res.main)
-        self.assertEqual(return_from_client["weather"][0]["description"], res.description)
-        self.assertEqual(return_from_client["main"]["temp"], res.temperature.main)
-        self.assertEqual(CardinalPoint.NORTH, res.wind.cardinal_point)
+        self.assertEqual(1, len(res.forecast))
+        self.assertEqual(return_from_client["daily"][0]["weather"][0]["main"], res.forecast[0].main)
+        self.assertEqual(return_from_client["daily"][0]["weather"][0]["description"], res.forecast[0].description)
+        self.assertEqual(CardinalPoint.NORTH, res.forecast[0].wind.cardinal_point)
 
 
 if __name__ == '__main__':
