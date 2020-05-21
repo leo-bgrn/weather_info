@@ -1,7 +1,7 @@
 from copy import deepcopy
 from typing import List
 
-from weather_info.params.secret_config import open_cage_data_api_key, open_weather_map_api_key, air_visual_api_key
+from weather_info.params.secrets_loader import open_cage_data_api_key, open_weather_map_api_key, air_visual_api_key
 
 basic = {
     "CONFIG_NAME": "base",
