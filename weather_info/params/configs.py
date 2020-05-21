@@ -1,7 +1,7 @@
 from copy import deepcopy
 from typing import List
 
-from weather_info.params.secret_config import open_cage_data_api_key, open_weather_map_api_key
+from weather_info.params.secret_config import open_cage_data_api_key, open_weather_map_api_key, air_visual_api_key
 
 basic = {
     "CONFIG_NAME": "base",
@@ -12,6 +12,10 @@ basic = {
     "OPEN_WEATHER_MAP": {
         "url": "https://api.openweathermap.org/data/2.5",
         "api_key": open_weather_map_api_key
+    },
+    "AIR_VISUAL": {
+        "url": "https://api.airvisual.com/v2",
+        "api_key": air_visual_api_key
     }
 }
 

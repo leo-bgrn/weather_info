@@ -1,6 +1,6 @@
 from marshmallow import Schema, fields
 
-from weather_info.api.location.model.LocationSchema import LocationSchema
+from weather_info.api.forecast.model.PollutionSchema import PollutionSchema
 from weather_info.api.forecast.model.TemperatureSchema import TemperatureSchema
 from weather_info.api.forecast.model.WindSchema import WindSchema
 
@@ -15,3 +15,4 @@ class WeatherSchema(Schema):
     wind = fields.Nested(WindSchema, attribute="wind")
     cloudiness = fields.Float(attribute="cloudiness")
     humidity = fields.Float(attribute="humidity")
+    pollution = fields.Nested(PollutionSchema, attribute="pollution", allow_none=True)

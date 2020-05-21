@@ -5,7 +5,7 @@ from flask_restx import Namespace, Resource, abort
 
 from weather_info.api.forecast.model.ForecastSchema import ForecastSchema
 from weather_info.application.forecast import ForecastService
-from weather_info.domain.forecast.Forecast import Forecast
+from weather_info.application.forecast.ForecastView import ForecastView
 
 api = Namespace("Forecast", description="Get forecast for location")
 
@@ -16,7 +16,7 @@ class ForecastResource(Resource):
     """ Weather """
 
     @responds(schema=ForecastSchema)
-    def get(self, locationLabel: str) -> Optional[Forecast]:
+    def get(self, locationLabel: str) -> Optional[ForecastView]:
         res = ForecastService.get_forecast(locationLabel)
 
         if res is None:

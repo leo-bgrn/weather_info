@@ -4,3 +4,7 @@ class OpenCageDataException(Exception):
 
 class OpenWeatherMapException(Exception):
     pass
+
+
+class AirVisualException(Exception):
+    pass
