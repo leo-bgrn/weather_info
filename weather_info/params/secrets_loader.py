@@ -4,7 +4,7 @@ open_cage_data_api_key = None
 open_weather_map_api_key = None
 air_visual_api_key = None
 
-if os.path.exists("./secret_config.py"):
+if os.path.exists("./weather_info/params/secret_config.py"):
     from weather_info.params.secret_config import open_cage_data_api_key as ocd_key
     from weather_info.params.secret_config import open_weather_map_api_key as owm_key
     from weather_info.params.secret_config import air_visual_api_key as ac_key
