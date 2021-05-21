@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:groovy-20210416
 
 RUN apt-get update
 RUN apt-get install -y python3.8 python3-pip
