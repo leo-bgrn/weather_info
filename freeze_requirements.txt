@@ -3,7 +3,7 @@ attrs==19.3.0
 certifi==2020.4.5.1
 chardet==3.0.4
 click==7.1.2
-Flask==1.1.2
+Flask==2.2.5
 flask-accepts==0.17.1
 flask-restx==0.2.0
 Flask-Script==2.0.6
