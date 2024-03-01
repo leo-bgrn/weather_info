@@ -18,7 +18,7 @@ marshmallow-enum==1.5.1
 more-itertools==8.2.0
 packaging==20.3
 pluggy==0.13.1
-py==1.8.1
+py==1.10.0
 pyparsing==2.4.7
 pyrsistent==0.16.0
 pytest==5.4.1
@@ -28,3 +28,4 @@ six==1.14.0
 urllib3==1.25.9
 wcwidth==0.1.9
 Werkzeug==1.0.1
+setuptools>=65.5.1 # not directly required, pinned by Snyk to avoid a vulnerability
