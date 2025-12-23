@@ -13,7 +13,7 @@ itsdangerous==1.1.0
 Jinja2==2.11.2
 jsonschema==3.2.0
 MarkupSafe==1.1.1
-marshmallow==3.6.0
+marshmallow==3.26.2
 marshmallow-enum==1.5.1
 more-itertools==8.2.0
 packaging==20.3
